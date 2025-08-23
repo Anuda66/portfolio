@@ -51,13 +51,9 @@ const Navbar = () => {
       >
         
         <div className="ml-28 flex items-center gap-x-7">
-          <img 
-            src={img} 
-            alt="Profile"
-            className="w-14 h-13 rounded-full border-2 border-blue-500"
-          />
+          
           <h1 className="md:text-4xl text-slate-200 font-semibold text-2xl">
-            Nisith
+            Anuda
           </h1>
         </div>
 

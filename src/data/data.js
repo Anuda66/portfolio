@@ -7,27 +7,22 @@ const media=[
     {
         id:1,
         name:"Linkedin",
-        link:"https://www.linkedin.com/in/nisithferdinando/",
+        link:"https://www.linkedin.com/in/anuda-ransara-28aa90224/",
         icon:IoLogoLinkedin,
     },
     {
         id:2,
         name:"Github",
-        link:"https://github.com/nisithferdinando",
+        link:"https://github.com/Anuda66",
         icon:BsGithub,
     },
     {
         id:3,
         name:"Facebook",
-        link:"https://www.facebook.com/nisith.sandaru/",
+        link:"https://www.facebook.com/share/14GeT1iBnHF/",
         icon:FaSquareFacebook,
     },
-    {
-        id:4,
-        name:"Instagram",
-        link:"https://www.instagram.com/nisiya____/",
-        icon:SiInstagram,
-    }
+   
 ];
 
 export default media;

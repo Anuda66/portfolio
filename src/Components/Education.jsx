@@ -1,21 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import image1 from '../assets/rc.png';
+import image1 from '../assets/VC.jpg';
 import image2 from '../assets/susl.png';
 
 const Education = () => {
   const educationData = [
     {
       image: image1,
-      institution: 'Royal College Colombo',
-      degree: 'Advance Level - Physical Science',
-      period: '2014 - 2017'
+      institution: ' Vijitha Central College, Dickwella',
+      degree: 'G.C.E Advanced Level in Science Stream',
+      period: '2004 - 2017'
     },
     {
       image: image2,
       institution: 'Sabaragamuwa University of Sri Lanka',
-      degree: 'BSc (Hons) Computer Science and Technology',
-      period: '2020 - Present'
+      degree: 'B.Sc.(Hons) in Computer Science and Technology',
+      period: '2020 - 2025'
     }
   ];
 

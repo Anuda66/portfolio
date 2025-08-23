@@ -43,11 +43,7 @@ const framework=[
         name:"Tailwind Css",
         icon:SiTailwindcss ,
     },
-    {
-        id:8,
-        name:".Net",
-        icon:SiDotnet
-    }
+
 
  ];
 

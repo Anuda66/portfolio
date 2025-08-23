@@ -24,13 +24,7 @@ const Tool=[
         name:"Figma",
         icon: CgFigma,
       },
-
-    {
-        id:4,
-        name:"Storybook",
-        icon:SiStorybook,
-      },
-
+      
     {
         id:5,
         name:"Vs Code",
