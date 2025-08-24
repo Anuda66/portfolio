@@ -1,12 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { BsPersonWorkspace } from "react-icons/bs";
 
 function Expiience() {
   return (
     <div id="experience">
       <div className="mt-12 sm:mt-20">
         <h1 className="text-2xl sm:text-4xl text-blue-500 font-bold text-center">
-          Experience 📂
+          Experience
         </h1>
 
         <motion.div

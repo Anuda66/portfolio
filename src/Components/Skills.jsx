@@ -8,7 +8,7 @@ const Skills = () => {
   return (
     <div className='px-4 sm:px-24' id="skills">
         <div className='mt-4 sm:mt-24 px-4 sm:px-16 bg-slate-700/20 py-6 sm:py-8 rounded-2xl shadow-2xl '>
-        <h1 className='text-3xl sm:text-4xl text-blue-500 text-center p-2 font-bold'>Skill Highlights 💡</h1>
+        <h1 className='text-3xl sm:text-4xl text-blue-500 text-center p-2 font-bold'>Skill Highlights</h1>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-14 mt-8 sm:mt-14'>
             <motion.div

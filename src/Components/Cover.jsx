@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import img1 from '../assets/i1.png';
 import img2 from '../assets/i2.png';
 import img3 from '../assets/i3.png';
+import { FaFileMedicalAlt } from "react-icons/fa";
 
 const SlideRight = (delay) => {
   return {
@@ -30,7 +31,7 @@ const SlideRight = (delay) => {
 
 const Cover = () => {
   return (
-    <div className='mt-10 sm:mt-36 px-4 sm:px-0' id="cover">
+    <div className='mt-24 sm:mt-32 px-4 sm:px-0' id="cover">
       <div className='grid grid-cols-1 md:grid-rows-4 md:grid-flow-col gap-4'>
         <motion.div
           variants={SlideRight(0.4)}
@@ -40,6 +41,7 @@ const Cover = () => {
           <div className='flex flex-col items-center'>
             <img src={image} width={300} height={350} alt='my-image' className='w-[250px] sm:w-[300px] h-auto' />
             <h1 className='text-2xl sm:text-4xl text-slate-300 mt-6 sm:mr-5 sm:mt-12 font-semibold text-center'>Anuda Ransara</h1>
+            <p className='text-blue-600 text-sm'>Full-Stack Software Engineer</p>
             <div className='flex gap-x-4 sm:gap-x-8 mt-4 sm:mr-4 justify-center'>
               <div className='flex gap-x-2 items-center'>
                 <FaLocationDot />
@@ -47,7 +49,7 @@ const Cover = () => {
               </div>
               <div className='flex gap-x-2 items-center'>
                 <FaUserGraduate />
-                <h4 className='text-xs sm:text-sm'>Graduate</h4>
+                <h4 className='text-xs sm:text-sm'>Graduated</h4>
               </div>
             </div>
             <div className='mt-6 sm:mt-12 flex gap-x-4 sm:gap-x-10 justify-center'>
@@ -87,22 +89,23 @@ const Cover = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="md:row-span-2 md:col-span-2 bg-slate-800/20 rounded-2xl w-full md:w-[800px] mt-6 sm:mt-10">
-          <h2 className='text-2xl sm:text-3xl text-blue-400 p-4 sm:p-10'>About Me </h2>
+          <h2 className='text-2xl sm:text-3xl text-blue-400 p-4 sm:p-10 flex gap-3'><FaFileMedicalAlt /> About Me </h2>
           <p className='text-sm sm:text-base text-slate-300 text-justify px-4 sm:px-10 leading-relaxed'> Dynamic Full-Stack Software Engineer with over six months of professional experience building scalable
             web applications using React, Node.js. Skilled in creating responsive frontend interfaces, secure backend
             APIs, and optimized database solutions.</p>
           <div className='flex flex-col sm:flex-row gap-y-4 sm:gap-x-8 mt-4 sm:mt-8 pl-4 sm:pl-10 pb-4 sm:pb-0'>
-            <div className='flex gap-x-2 border-[0.5px] bg-slate-800/15 border-blue-300 px-2 py-2 rounded-lg items-center cursor-pointer shadow-[0_0_12px_2px_rgba(59,130,246,0.4)] hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.4)] hover:bg-blue-500'>
-              <img src={img1} width={20} height={20} alt='img1' className='invert' />
-              <p className='text-sm font-sans'>UX Design</p>
-            </div>
+            
             <div className='flex gap-x-2 border-[0.5px] bg-slate-800/15 border-red-500 px-2 py-2 rounded-lg items-center cursor-pointer shadow-[0_0_12px_2px_rgba(255,0,0,0.4)] hover:shadow-[0_0_15px_5px_rgba(255,0,0,0.4)] hover:bg-red-500'>
               <img src={img2} width={20} height={20} alt='img2' className='invert' />
               <p className='text-sm font-sans'>Web Development</p>
             </div>
+            <div className='flex gap-x-2 border-[0.5px] bg-slate-800/15 border-blue-300 px-2 py-2 rounded-lg items-center cursor-pointer shadow-[0_0_12px_2px_rgba(59,130,246,0.4)] hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.4)] hover:bg-blue-500'>
+              <img src={img1} width={20} height={20} alt='img1' className='invert' />
+              <p className='text-sm font-sans'>UX Design</p>
+            </div>
             <div className='flex gap-x-2 border-[0.5px] bg-slate-800/15 border-green-500 px-2 py-2 rounded-lg items-center cursor-pointer shadow-[0_0_12px_2px_rgba(34,197,94,0.4)] hover:shadow-[0_0_15px_5px_rgba(34,197,94,0.4)] hover:bg-green-500'>
               <img src={img3} width={20} height={20} alt='img3' className='invert' />
-              <p className='text-sm font-sans'>Graduate</p>
+              <p className='text-sm font-sans'>Graduated</p>
             </div>
           </div>
         </motion.div>

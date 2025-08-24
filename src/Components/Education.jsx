@@ -6,17 +6,18 @@ import image2 from '../assets/susl.png';
 const Education = () => {
   const educationData = [
     {
+      image: image2,
+      institution: 'Sabaragamuwa University of Sri Lanka',
+      degree: 'B.Sc.(Hons) in Computer Science and Technology',
+      period: '2020 - 2025'
+    },
+    {
       image: image1,
       institution: ' Vijitha Central College, Dickwella',
       degree: 'G.C.E Advanced Level in Science Stream',
       period: '2004 - 2017'
     },
-    {
-      image: image2,
-      institution: 'Sabaragamuwa University of Sri Lanka',
-      degree: 'B.Sc.(Hons) in Computer Science and Technology',
-      period: '2020 - 2025'
-    }
+    
   ];
 
   return (
@@ -31,7 +32,7 @@ const Education = () => {
       >
         <h2 className="text-4xl font-bold text-blue-500 flex items-center justify-center">
           Education 
-          <span className="ml-3">🎓</span>
+         
         </h2>
       </motion.div>
 

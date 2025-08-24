@@ -10,7 +10,7 @@ const Projects = () => {
     <div id="projects">
       <div className="mt-12 sm:mt-20">
         <h1 className="text-2xl sm:text-4xl text-blue-500 font-bold text-center">
-          Projects 📂
+          Projects 
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-center px-4 sm:px-48 mt-8 sm:mt-12">
           {projects.map((item) => {
