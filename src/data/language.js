@@ -1,6 +1,5 @@
 
 import { FaC } from 'react-icons/fa6';
-import image from '../assets/python.png';
 import { FaJava } from "react-icons/fa";
 import { RiJavascriptFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
