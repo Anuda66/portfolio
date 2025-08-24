@@ -42,7 +42,7 @@ const Message = () => {
           initial={{opacity:0, y:50}}
           whileInView={{opacity:1, x:0}}
           transition={{duration:0.3, delay:0.3}}
-          className='text-center text-3xl font-semibold text-blue-400/90 drop-shadow-lg'>Drop a Message 💬</motion.h1>
+          className='text-center text-3xl font-semibold text-blue-400/90 drop-shadow-lg'>Get In Touch 💬</motion.h1>
           <div className='mt-28 flex justify-center'>
             <form ref={form} onSubmit={sendEmail}>
               <div className='flex flex-col justify-start items-start space-y-5 pb-4'>

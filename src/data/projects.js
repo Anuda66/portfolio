@@ -8,52 +8,41 @@ import img6 from "../assets/p6.png";
 const projects = [
     {
         id: 1,
-        name: "The Donut Shop",
-        description: "A responsive donut shop website built with React and Framer Motion.",
+        name: " FlegoHub",
+        description: ` Flego Hub is an advanced, centralized platform developed to customers manage 
+                        payments and subscriptions across the company’s entire suite of digital products and services.`,
         img: img1,  // Store path as string
-        skill: ["React", "Framer Motion", "Tailwind CSS"],
-        link: "https://github.com/nisithferdinando/The-Donut-Shop",
+        skill: ["React", "Node.js", "Express.js", "MongoDB", "Framer Motion", "Tailwind CSS"],
+        link: "https://github.com/Anuda66/FlegoHub",
     },
     {
         id: 2,
-        name: "Railway Ticket Booking",
-        description: "Web-based application for booking train tickets.",
+        name: "Clothify",
+        description: `Developed an E-Commerce web application using modern technologies, featuring product listings, user 
+                        authentication, and a shopping cart system.`,
         img: img2,
-        skill: ["React", "Express Js", "MongoDB", "Stripe"],
-        link: "https://github.com/nisithferdinando/Sri-Lanka-Railway-Ticket-Booking-System",
+        skill: ["React", "Node.js", "Express.js", "MongoDB", "Framer Motion", "Tailwind CSS"],
+        link: "https://github.com/Anuda66/Clothify-E-Commerce-web-app",
     },
     {
         id: 3,
-        name: "Stage Shows Booking",
-        description: "A full-stack web app for booking stage show tickets.",
+        name: " Work Wave",
+        description: `Enabling companies to post jobs and internships. Key features include an Automatic CV Generator and 
+                        an Urgent Employee Finder to match candidates with job openings efficiently`,
         img: img3,
-        skill: ["React", "Express Js", "MongoDB", "Stripe"],
-        link: "https://github.com/nisithferdinando/Stage-Shows-Booking",
+        skill: ["React", "Node.js", "Express.js", "MongoDB", "Framer Motion", "Tailwind CSS"],
+        link: "https://github.com/Anuda66/Work-Wave-job-posting",
     },
     {
         id: 4,
-        name: "CrustKicks - Pizza App",
-        description: "User-friendly mobile app prototype designed using Figma.",
+        name: "Health Haven",
+        description: `Doctor appointments web application that allows users to browse doctor profiles, view detailed 
+                        information, and book appointments.`,
         img: img4,
-        skill: ["Figma"],
-        link: "https://www.figma.com/proto/HQylx5GBbNwVfBXYXDwERv/CrustKicks",
+        skill: ["React", "Framer Motion", "Tailwind CSS"],
+        link: "https://github.com/Anuda66/Doctor-Appointment-System-",
     },
-    {
-        id: 5,
-        name: "BMI Calculator",
-        description: "BMI calculator using C# .NET and MySQL.",
-        img: img5,
-        skill: ["C#", ".NET", "MySQL"],
-        link: "https://github.com/nisithferdinando/BMI-Calculator",
-    },
-    {
-        id: 6,
-        name: "Note Manager",
-        description: "A web app for managing notes with CRUD features.",
-        img: img6,
-        skill: ["React", "JWT", "Express Js", "MongoDB"],
-        link: "https://github.com/nisithferdinando/Notes-manager",
-    },
+   
 ];
 
 export default projects;

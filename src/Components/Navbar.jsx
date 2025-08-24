@@ -41,19 +41,19 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-200 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-200  ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <motion.div
         initial={{opacity:0}}
         animate={{opacity:1}}
         transition={{duration:0.5, delay:0.1}}
-        className="flex justify-between py-8 bg-slate-950 z-50"
+        className="flex justify-between py-5 bg-slate-950 z-50"
       >
         
         <div className="ml-28 flex items-center gap-x-7">
           
-          <h1 className="md:text-4xl text-slate-200 font-semibold text-2xl">
-            Anuda
+          <h1 className="text-blue-500 md:text-xl  font-semibold text-2xl">
+            AR.
           </h1>
         </div>
 
@@ -61,25 +61,25 @@ const Navbar = () => {
         <div className="md:flex md:gap-x-5 items-center text-slate-200 hidden">
           <button 
             onClick={() => scrollToSection('cover')} 
-            className="md:text-xl text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
+            className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
           >
             About
           </button>
           <button 
             onClick={() => scrollToSection('education')} 
-            className="md:text-xl text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
+            className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
           >
             Education
           </button>
           <button 
             onClick={() => scrollToSection('skills')} 
-            className="md:text-xl text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
+            className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
           >
             Skills
           </button>
           <button 
             onClick={() => scrollToSection('projects')} 
-            className="md:text-xl text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
+            className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
           >
             Projects
           </button>
@@ -90,8 +90,8 @@ const Navbar = () => {
           onClick={() => scrollToSection('message')}
           className="mr-28 border-[1.5px] items-center md:flex gap-4 text-white px-4 py-2 cursor-pointer border-blue-400/45 rounded-md hover:bg-blue-500 hover:border-blue-500 transition duration-300 hidden"
         >
-          <span className="md:text-lg">Message Me</span>
-          <AiFillMessage className="text-xl"/>
+          <span className="">Message Me</span>
+          <AiFillMessage className=""/>
         </button>
 
         <div 

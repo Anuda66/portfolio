@@ -87,7 +87,7 @@ const Cover = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="md:row-span-2 md:col-span-2 bg-slate-800/20 rounded-2xl w-full md:w-[800px] mt-6 sm:mt-10">
-          <h2 className='text-2xl sm:text-3xl text-blue-400 p-4 sm:p-10'>About Me 👤</h2>
+          <h2 className='text-2xl sm:text-3xl text-blue-400 p-4 sm:p-10'>About Me </h2>
           <p className='text-sm sm:text-base text-slate-300 text-justify px-4 sm:px-10 leading-relaxed'> Dynamic Full-Stack Software Engineer with over six months of professional experience building scalable
             web applications using React, Node.js. Skilled in creating responsive frontend interfaces, secure backend
             APIs, and optimized database solutions.</p>
