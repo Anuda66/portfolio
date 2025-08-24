@@ -1,89 +1,107 @@
-
 import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
+import Swal from 'sweetalert2'
 
-const YOUR_PUBLIC_KEY = 'IirWduLnAIqSXoxWI';
-const SERVICE_ID = 'nisith-8000';
-const TEMPLATE_ID = 'template_ndq5ggs';
 
 const Message = () => {
-    const form = useRef();
-    const [popupMessage, setPopupMessage] = useState('');
-    const [showPopup, setShowPopup] = useState(false);
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-    
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, YOUR_PUBLIC_KEY)
-          .then((result) => {
-            console.log('Message sent:', result.text);
-            setPopupMessage('Message sent successfully!');
-            setShowPopup(true);
-            form.current.reset();
-          })
-          .catch((error) => {
-            console.error('Failed to send message:', error.text);
-            setPopupMessage('Failed to send message. Please try again.');
-            setShowPopup(true);
-          });
-    };
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-    const closePopup = () => {
-        setShowPopup(false);
-        setPopupMessage('');
-    };
+    formData.append("access_key", "d35669a1-4a28-48b3-9c98-07825f23e38b");
 
-    return (
-      <div
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Mesage sent successfully!",
+        icon: "success"
+      });
+    }
+  };
+
+
+
+  return (
+    <div
       id="message">
-        <div className='mt-16'>
-          <motion.h1
-          initial={{opacity:0, y:50}}
-          whileInView={{opacity:1, x:0}}
-          transition={{duration:0.3, delay:0.3}}
+      <div className='mt-16'>
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           className='text-center text-3xl font-semibold text-blue-400/90 drop-shadow-lg'>Get In Touch 💬</motion.h1>
-          <div className='mt-28 flex justify-center'>
-            <form ref={form} onSubmit={sendEmail}>
-              <div className='flex flex-col justify-start items-start space-y-5 pb-4'>
-                <motion.input 
-                initial={{opacity:0, y:50}}
-                whileInView={{opacity:1, y:0}}
-                transition={{duration:0.4, delay:0.3}}
-                type="text" name='name' placeholder='Name' required className='px-4 py-4 md:w-[500px] text-slate-300 text-xl border-[1px] border-blue-400 rounded-xl bg-slate-800/25'/>
-                <motion.input
-                initial={{opacity:0, y:100}}
-                whileInView={{opacity:1, y:0}}
-                transition={{duration:0.4, delay:0.4}}
-                type="text" name='email' placeholder='Email' required className='px-4 py-4 md:w-[500px] text-slate-300 text-xl border-[1px] border-blue-400 rounded-xl bg-slate-800/25'/>
-                <motion.textarea 
-                initial={{opacity:0, y:100}}
-                whileInView={{opacity:1, y:0}}
-                transition={{duration:0.4, delay:0.5}}
-                name='message' placeholder='Message' required rows={4} className='px-4 py-4 md:w-[500px] text-slate-300 text-xl border-[1px] border-blue-400 rounded-xl bg-slate-800/25'></motion.textarea>
-                <motion.button 
-                initial={{opacity:0, y:100}}
-                whileInView={{opacity:1, y:0}}
-                transition={{duration:0.3, delay:0.3}}
-                className='text-center mt-5 bg-blue-500 text-xl px-8 py-2 cursor-pointer border-blue-400 hover:bg-slate-900 hover:text-slate-300 rounded-xl hover:shadow-[0_0_15px_0px_rgba(59,130,246,0.5)] transition duration-300'>Send</motion.button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <div className='mt-28  justify-center md:mx-96 mx-10'>
 
-        {showPopup && (
-          <div className='fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50'>
-            <div className='bg-slate-300 text-black p-12 rounded-xl shadow-lg text-center z-20'>
-              <p className='text-xl font-semibold mb-4 flex gap-x-4'>{popupMessage}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Check-Badge--Streamline-Ultimate" height={24} width={24} ><desc>{"Check Badge Streamline Icon: https://streamlinehq.com"}</desc><path fill="#ffef5e" d="M10.814 2.07429c0.1423 -0.17787 0.3229 -0.32145 0.5282 -0.42012 0.2052 -0.09867 0.4302 -0.1499 0.658 -0.1499s0.4527 0.05123 0.658 0.1499c0.2053 0.09867 0.3859 0.24225 0.5281 0.42012l1.4099 1.75468c0.1598 0.19895 0.3674 0.35442 0.6032 0.45201 0.2359 0.0976 0.4926 0.1342 0.7463 0.10641l2.2374 -0.24362c0.2259 -0.02408 0.4543 0.00275 0.6684 0.07851 0.2142 0.07576 0.4087 0.19854 0.5692 0.35931 0.1605 0.16077 0.283 0.35545 0.3584 0.56975 0.0754 0.2143 0.1018 0.44277 0.0775 0.66863l-0.2437 2.23645c-0.0276 0.25382 0.0092 0.5105 0.1069 0.74636 0.0978 0.23587 0.2534 0.4433 0.4525 0.60318l1.7537 1.40884c0.1777 0.1425 0.3211 0.323 0.4197 0.5283 0.0986 0.2053 0.1498 0.4302 0.1498 0.6579 0 0.2278 -0.0512 0.4526 -0.1498 0.658 -0.0986 0.2052 -0.242 0.3858 -0.4197 0.5282l-1.7537 1.4098c-0.1991 0.1597 -0.3547 0.3669 -0.4525 0.6027 -0.0977 0.2357 -0.1345 0.4922 -0.1069 0.7459l0.2437 2.2374c0.0246 0.226 -0.0018 0.4547 -0.0772 0.6692 -0.0755 0.2144 -0.1981 0.4093 -0.3589 0.5701 -0.1608 0.1608 -0.3556 0.2834 -0.5701 0.3589 -0.2145 0.0754 -0.4432 0.1017 -0.6691 0.0771l-2.2374 -0.2437c-0.2539 -0.0274 -0.5104 0.0095 -0.7463 0.1072 -0.2359 0.0978 -0.4433 0.2533 -0.6033 0.4522l-1.408 1.7519c-0.1422 0.1778 -0.3228 0.3215 -0.5281 0.4201 -0.2053 0.0987 -0.4302 0.1499 -0.658 0.1499s-0.4528 -0.0512 -0.658 -0.1499c-0.2053 -0.0986 -0.3859 -0.2423 -0.5282 -0.4201l-1.40797 -1.7538c-0.16 -0.1989 -0.36745 -0.3543 -0.60328 -0.4521 -0.23583 -0.0978 -0.49246 -0.1346 -0.74627 -0.1072l-2.23736 0.2436c-0.22603 0.0247 -0.45472 -0.0016 -0.66921 -0.077 -0.21449 -0.0755 -0.40931 -0.1981 -0.57009 -0.3589 -0.16078 -0.1608 -0.28342 -0.3556 -0.35888 -0.5701 -0.07546 -0.2145 -0.1018 -0.4432 -0.07711 -0.6693l0.24362 -2.2374c0.02761 -0.2536 -0.00916 -0.5102 -0.10693 -0.7458 -0.09776 -0.2358 -0.25335 -0.4431 -0.45241 -0.6028l-1.75376 -1.4079c-0.17771 -0.1424 -0.32116 -0.323 -0.41972 -0.5282 -0.09857 -0.2054 -0.14975 -0.4302 -0.14975 -0.658 0 -0.2277 0.05118 -0.4526 0.14975 -0.6579 0.09856 -0.2053 0.24201 -0.3858 0.41972 -0.5283l1.75376 -1.40884c0.19907 -0.15988 0.35465 -0.36731 0.45241 -0.60318 0.09776 -0.23586 0.13453 -0.49254 0.10693 -0.74636l-0.24362 -2.23645c-0.02449 -0.22603 0.00199 -0.45468 0.0775 -0.66912 0.07552 -0.21445 0.19815 -0.40924 0.35886 -0.57004 0.16072 -0.16081 0.35545 -0.28355 0.56985 -0.35918 0.21441 -0.07562 0.44303 -0.10224 0.66908 -0.07786l2.23736 0.24362c0.25376 0.02779 0.51041 -0.00881 0.74628 -0.10641 0.23587 -0.09759 0.44335 -0.25306 0.60327 -0.45201L10.814 2.07429Z" strokeWidth={1} /><path fill="#fff9bf" d="M4.57999 19.4203c-0.16068 -0.1608 -0.28327 -0.3557 -0.35875 -0.5701 -0.07548 -0.2144 -0.10193 -0.443 -0.07741 -0.6691l0.24362 -2.2374c0.02761 -0.2536 -0.00916 -0.5102 -0.10693 -0.7458 -0.09776 -0.2358 -0.25335 -0.4431 -0.45241 -0.6028l-1.75376 -1.4079c-0.17771 -0.1424 -0.32116 -0.323 -0.41972 -0.5282 -0.09857 -0.2054 -0.14975 -0.4302 -0.14975 -0.658 0 -0.2277 0.05118 -0.4526 0.14975 -0.6579 0.09856 -0.2053 0.24201 -0.3858 0.41972 -0.5283l1.75376 -1.40884c0.19907 -0.15988 0.35465 -0.36731 0.45241 -0.60318 0.09776 -0.23586 0.13453 -0.49254 0.10693 -0.74636l-0.24362 -2.23645c-0.02449 -0.22603 0.00199 -0.45468 0.0775 -0.66912 0.07552 -0.21445 0.19815 -0.40924 0.35886 -0.57004 0.16072 -0.16081 0.35545 -0.28355 0.56985 -0.35918 0.21441 -0.07562 0.44303 -0.10224 0.66908 -0.07786l2.23736 0.24362c0.25376 0.02779 0.51041 -0.00881 0.74628 -0.10641 0.23587 -0.09759 0.44335 -0.25306 0.60327 -0.45201L10.814 2.07429c0.1423 -0.17787 0.3229 -0.32145 0.5282 -0.42012 0.2052 -0.09867 0.4302 -0.1499 0.658 -0.1499s0.4527 0.05123 0.658 0.1499c0.2053 0.09867 0.3859 0.24225 0.5281 0.42012l1.4099 1.75468c0.1598 0.19895 0.3674 0.35442 0.6032 0.45201 0.2359 0.0976 0.4926 0.1342 0.7463 0.10641l2.2374 -0.24362c0.226 -0.02427 0.4547 0.00238 0.6691 0.07802 0.2144 0.07563 0.4092 0.19832 0.5699 0.35905L4.57999 19.4203Z" strokeWidth={1} /><path stroke="#191919" strokeLinecap="round" strokeLinejoin="round" d="M10.814 2.07429c0.1423 -0.17787 0.3229 -0.32145 0.5282 -0.42012 0.2052 -0.09867 0.4302 -0.1499 0.658 -0.1499s0.4527 0.05123 0.658 0.1499c0.2053 0.09867 0.3859 0.24225 0.5281 0.42012l1.4099 1.75468c0.1598 0.19895 0.3674 0.35442 0.6032 0.45201 0.2359 0.0976 0.4926 0.1342 0.7463 0.10641l2.2374 -0.24362c0.2259 -0.02408 0.4543 0.00275 0.6684 0.07851 0.2142 0.07576 0.4087 0.19854 0.5692 0.35931 0.1605 0.16077 0.283 0.35545 0.3584 0.56975 0.0754 0.2143 0.1018 0.44277 0.0775 0.66863l-0.2437 2.23645c-0.0276 0.25382 0.0092 0.5105 0.1069 0.74636 0.0978 0.23587 0.2534 0.4433 0.4525 0.60318l1.7537 1.40884c0.1777 0.1425 0.3211 0.323 0.4197 0.5283 0.0986 0.2053 0.1498 0.4302 0.1498 0.6579 0 0.2278 -0.0512 0.4526 -0.1498 0.658 -0.0986 0.2052 -0.242 0.3858 -0.4197 0.5282l-1.7537 1.4098c-0.1991 0.1597 -0.3547 0.3669 -0.4525 0.6027 -0.0977 0.2357 -0.1345 0.4922 -0.1069 0.7459l0.2437 2.2374c0.0246 0.226 -0.0018 0.4547 -0.0772 0.6692 -0.0755 0.2144 -0.1981 0.4093 -0.3589 0.5701 -0.1608 0.1608 -0.3556 0.2834 -0.5701 0.3589 -0.2145 0.0754 -0.4432 0.1017 -0.6691 0.0771l-2.2374 -0.2437c-0.2539 -0.0274 -0.5104 0.0095 -0.7463 0.1072 -0.2359 0.0978 -0.4433 0.2533 -0.6033 0.4522l-1.408 1.7519c-0.1422 0.1778 -0.3228 0.3215 -0.5281 0.4201 -0.2053 0.0987 -0.4302 0.1499 -0.658 0.1499s-0.4528 -0.0512 -0.658 -0.1499c-0.2053 -0.0986 -0.3859 -0.2423 -0.5282 -0.4201l-1.40797 -1.7538c-0.16 -0.1989 -0.36745 -0.3543 -0.60328 -0.4521 -0.23583 -0.0978 -0.49246 -0.1346 -0.74627 -0.1072l-2.23736 0.2436c-0.22603 0.0247 -0.45472 -0.0016 -0.66921 -0.077 -0.21449 -0.0755 -0.40931 -0.1981 -0.57009 -0.3589 -0.16078 -0.1608 -0.28342 -0.3556 -0.35888 -0.5701 -0.07546 -0.2145 -0.1018 -0.4432 -0.07711 -0.6693l0.24362 -2.2374c0.02761 -0.2536 -0.00916 -0.5102 -0.10693 -0.7458 -0.09776 -0.2358 -0.25335 -0.4431 -0.45241 -0.6028l-1.75376 -1.4079c-0.17771 -0.1424 -0.32116 -0.323 -0.41972 -0.5282 -0.09857 -0.2054 -0.14975 -0.4302 -0.14975 -0.658 0 -0.2277 0.05118 -0.4526 0.14975 -0.6579 0.09856 -0.2053 0.24201 -0.3858 0.41972 -0.5283l1.75376 -1.40884c0.19907 -0.15988 0.35465 -0.36731 0.45241 -0.60318 0.09776 -0.23586 0.13453 -0.49254 0.10693 -0.74636l-0.24362 -2.23645c-0.02449 -0.22603 0.00199 -0.45468 0.0775 -0.66912 0.07552 -0.21445 0.19815 -0.40924 0.35886 -0.57004 0.16072 -0.16081 0.35545 -0.28355 0.56985 -0.35918 0.21441 -0.07562 0.44303 -0.10224 0.66908 -0.07786l2.23736 0.24362c0.25376 0.02779 0.51041 -0.00881 0.74628 -0.10641 0.23587 -0.09759 0.44335 -0.25306 0.60327 -0.45201L10.814 2.07429Z" strokeWidth={1} /><path stroke="#191919" strokeLinecap="round" strokeLinejoin="round" d="m15.6497 9.71973 -3.7138 4.95107c-0.0601 0.0801 -0.1366 0.1464 -0.2246 0.1944 -0.0879 0.0479 -0.1851 0.0765 -0.285 0.0837 -0.0999 0.0071 -0.2002 -0.0072 -0.2941 -0.0421 -0.0939 -0.0349 -0.1792 -0.0896 -0.2501 -0.1603l-2.22829 -2.2292" strokeWidth={1} /></svg>              </p>
-              <button onClick={closePopup} className='bg-blue-500 text-white px-4 py-2 mt-2 rounded-lg hover:bg-blue-600 transition duration-300'>
-                Done
+          <p className=" text-lg text-center mb-10">I'm always open to new opportunities and collaborations. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
+
+          <form onSubmit={onSubmit} className="space-y-6" >
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-white">
+                Full Name
+              </label>
+              <div className="mt-1">
+                <input id="name" name="name" type="text" required className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="John Doe"/>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-white">
+                Email address
+              </label>
+              <div className="mt-1">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-white">
+                Message
+              </label>
+              <div className="mt-1">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  placeholder="Enter your message here..."
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
+                Submit
               </button>
             </div>
-          </div>
-        )}
+          </form>
+        </div>
       </div>
-    );
+
+    </div>
+  );
 };
 
 export default Message;

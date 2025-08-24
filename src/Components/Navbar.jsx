@@ -4,7 +4,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { MdMenu } from 'react-icons/md';
 import ResponsiveNavbar from "./ResponsiveNavbar";
 import { motion } from 'framer-motion';
-import img from '../assets/image4.png';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-200  ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-200  `}
     >
       <motion.div
         initial={{opacity:0}}
@@ -64,6 +64,12 @@ const Navbar = () => {
             className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
           >
             About
+          </button>
+          <button 
+            onClick={() => scrollToSection('experience')} 
+            className=" text-base cursor-pointer hover:text-blue-500 transition-colors duration-300"
+          >
+            Experience
           </button>
           <button 
             onClick={() => scrollToSection('education')} 

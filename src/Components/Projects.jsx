@@ -7,9 +7,7 @@ const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
 
   return (
-    <div
-    id="projects"
-    >
+    <div id="projects">
       <div className="mt-12 sm:mt-20">
         <h1 className="text-2xl sm:text-4xl text-blue-500 font-bold text-center">
           Projects 📂
@@ -62,7 +60,7 @@ const Projects = () => {
                 >
                   <button className="flex gap-x-2 sm:gap-x-4 bg-blue-500 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-lg font-semibold hover:bg-blue-600 transition duration-700">
                     <a
-                      className="text-sm sm:text-lg"
+                      className="text-sm sm:text-base"
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"

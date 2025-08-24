@@ -49,6 +49,7 @@ const ResponsiveNavbar = ({ onNavItemClick, onClose }) => {
       >
         {[
           { id: 'cover', label: 'About' },
+          { id: 'experience', label: 'Experience' },
           { id: 'education', label: 'Education' },
           { id: 'skills', label: 'Skills' },
           { id: 'projects', label: 'Projects' },
@@ -61,7 +62,7 @@ const ResponsiveNavbar = ({ onNavItemClick, onClose }) => {
               onNavItemClick(item.id);
               onClose();
             }}
-            className="text-2xl text-white hover:text-blue-500 transition-colors duration-300 transform hover:scale-105 font-medium tracking-wider"
+            className="text-lg text-white hover:text-blue-500 transition-colors duration-300 transform hover:scale-105 font-medium tracking-wider"
           >
             {item.label}
           </motion.button>
