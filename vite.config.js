@@ -9,5 +9,8 @@ export default defineConfig({
   ],
   "@tailwindcss/postcss": {},
   base:"/my-portfolio",
+  build: {
+    outDir: 'dist'
+  }
   
 })
